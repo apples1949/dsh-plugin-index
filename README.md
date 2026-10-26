@@ -9,13 +9,18 @@
 打开 **插件 → 发现（Discover）→ 索引源（Index sources）→ 添加**，填：
 
 ```
-https://raw.githubusercontent.com/apples1949/dsh-plugin-index/main/index.json
-```
-
-添加后它成为当前选中的插件市场，条目会列出来。宿主给索引源的读取时间是 **15 秒**，raw.githubusercontent 在国内可能超时；超时就换 jsDelivr 镜像（要等它缓存，刚推上去的提交会延迟）：
-
-```
 https://cdn.jsdelivr.net/gh/apples1949/dsh-plugin-index@main/index.json
+```
+
+添加后它成为当前选中的插件市场，条目会列出来。宿主给索引源的读取时间是 **15 秒**，所以这里用 jsDelivr 而不是 raw.githubusercontent：在本机实测 raw 的域名 3 次全超时（25s 无响应），jsDelivr 2 秒返回、内容一致。
+
+代价是 jsDelivr 会缓存 `@main`（可能滞后一段时间）。想立刻看到本仓库的最新改动，可以：
+
+- 用提交/标签固定：`https://cdn.jsdelivr.net/gh/apples1949/dsh-plugin-index@<sha>/index.json`（或 `@v1` 这种 tag）；
+- 或者换成 raw 地址自己试一次（网络允许的话）：
+
+```
+https://raw.githubusercontent.com/apples1949/dsh-plugin-index/main/index.json
 ```
 
 不想用索引源也可以直接按包名装，见下面每个插件的命令。
