@@ -1,0 +1,107 @@
+{
+  "format": 1,
+  "title": {
+    "en": "apples1949 · DSH plugins",
+    "zh": "apples1949 · DSH 插件"
+  },
+  "description": {
+    "en": "Personal DeepSeek Harness plugins, published as-is: installed straight from their GitHub repos, updated only when the author needs it. No version guarantees.",
+    "zh": "个人自用的 DeepSeek Harness 插件，按现状发布：直接从各自的 GitHub 仓库安装，只在作者自己有需要时才更新，不承诺版本、不保证更新。"
+  },
+  "metadata": {
+    "categories": {
+      "session": {
+        "title": {
+          "en": "Sessions & Messages",
+          "zh": "会话与消息"
+        }
+      },
+      "ui": {
+        "title": {
+          "en": "UI Enhancements",
+          "zh": "UI 增强"
+        }
+      }
+    },
+    "labels": {},
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "@apples1949/dsh-thinking-tag-guard",
+      "title": "思考归位 + 静默停止守卫",
+      "description": {
+        "zh": "把网关漏进正文的思考脚手架归位到思考通道（thinking / summary / analysis 等任意拼写，带不带尖括号都识别），丢弃原样回放的思考，并在最后一步没有工具调用、正文只是泄漏或空答时阻止回合静默结束。另清除网关私有的 <|DSML|…> 特殊标记（含跨分片与半截 token）。按需维护，不保证更新。",
+        "en": "Moves reasoning that a gateway leaked into the assistant text channel back into the reasoning channel for every marker spelling, drops text that replays the reasoning already streamed, and keeps a tool-less step from closing the turn silently when its answer is missing or is leaked thinking; also strips gateway-private <|DSML|…> special tokens from both channels, including tokens split across deltas. Maintained on demand, no update guarantee."
+      },
+      "homepage": "https://github.com/apples1949/dsh-thinking-tag-guard",
+      "repository": {
+        "url": "https://github.com/apples1949/dsh-thinking-tag-guard"
+      },
+      "metadata": {
+        "category": "session",
+        "keywords": [
+          "reasoning",
+          "thinking",
+          "stream",
+          "gateway",
+          "guard"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.2.0",
+          "publishTimestamp": 1793031778,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/apples1949/dsh-thinking-tag-guard",
+            "commit": "bc5917d7a1454693b3028b168c13760fbbb5c0d0"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@apples1949/dsh-speed-meter",
+      "title": "实时输出速度",
+      "description": {
+        "zh": "在输入框下方显示实时输出速度（tok/s）：生成中滚动更新，空闲时显示上一轮的平均速度。无定时器，完全由流式增量驱动；不改变会话内容，只读渲染。按需维护，不保证更新。",
+        "en": "Shows a live output speed (tok/s) below the composer: scrolls while the model streams and shows the previous turn's average when idle. No timers — driven entirely by streaming deltas, read-only. Maintained on demand, no update guarantee."
+      },
+      "homepage": "https://github.com/apples1949/dsh-speed-meter",
+      "repository": {
+        "url": "https://github.com/apples1949/dsh-speed-meter"
+      },
+      "metadata": {
+        "category": "ui",
+        "keywords": [
+          "tok/s",
+          "speed",
+          "throughput",
+          "composer",
+          "ui"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1793031779,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/apples1949/dsh-speed-meter",
+            "commit": "f1ef94f31a4edff6ef80ae6025c6eea92e11cad7"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.1"
+          }
+        }
+      ]
+    }
+  ]
+}
